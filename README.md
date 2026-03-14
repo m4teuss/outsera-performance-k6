@@ -46,7 +46,7 @@ OUTSERA-PERFORMANCE-K6
 ├── tests
 │   └── loadTest.js
 │
-├── util
+├── utils
 │   └── checks.js
 │
 └── README.md

@@ -1,0 +1,26 @@
+name: Pipe - Desafio de Integração e CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Permite rodar manualmente pelo painel do GitHub
+
+jobs:
+  k6_test:
+    name: Run k6 Load Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run local k6 test
+        uses: grafana/run-k6-action@v1
+        with:
+          path: ./tests/loadTest.js
+          # Se precisar passar flags extras (como duração ou VUs), descomente abaixo:
+          # flags: --vus 10 --duration 30s
